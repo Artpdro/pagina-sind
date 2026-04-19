@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -32,9 +33,9 @@ const MemberCard = ({ name, role, index }: { name: string; role: string; index: 
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: index * 0.05 }}
-    className="flex items-center gap-4 rounded-xl border border-border bg-card p-5 shadow-card"
+    className="flex items-center gap-4 border border-border bg-card p-4 shadow-card"
   >
-    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+    <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-primary/10 text-primary">
       <Users className="h-5 w-5" />
     </div>
     <div>
@@ -45,56 +46,54 @@ const MemberCard = ({ name, role, index }: { name: string; role: string; index: 
 );
 
 const Diretoria = () => {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <section className="bg-primary py-16 md:py-24">
+        <section className="bg-primary py-14 md:py-20">
           <div className="container">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <h1 className="font-display text-3xl font-extrabold text-primary-foreground md:text-4xl">
                 A Diretoria
               </h1>
-              <p className="mt-4 max-w-2xl text-lg text-primary-foreground/80">
+              <p className="mt-3 max-w-2xl text-base text-primary-foreground/80">
                 Conheça os membros que compõem a diretoria do SINDNORTE.
               </p>
             </motion.div>
           </div>
         </section>
 
-        <section className="bg-background py-16 md:py-24">
+        <section className="bg-background py-14 md:py-20">
           <div className="container max-w-4xl">
-            {/* Diretoria Executiva */}
             <div>
-              <h2 className="font-display text-2xl font-bold text-foreground">Diretoria Executiva</h2>
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <h2 className="font-display text-xl font-bold text-foreground">Diretoria Executiva</h2>
+              <div className="mt-4 flex flex-col gap-3">
                 {diretoriaExecutiva.map((member, i) => (
                   <MemberCard key={i} name={member.name} role={member.role} index={i} />
                 ))}
               </div>
             </div>
 
-            {/* Suplentes */}
-            <div className="mt-16">
-              <h2 className="font-display text-2xl font-bold text-foreground">Suplentes do Conselho Fiscal</h2>
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="mt-12">
+              <h2 className="font-display text-xl font-bold text-foreground">Suplentes do Conselho Fiscal</h2>
+              <div className="mt-4 flex flex-col gap-3">
                 {suplentesConselhoFiscal.map((member, i) => (
                   <MemberCard key={i} name={member.name} role={member.role} index={i} />
                 ))}
               </div>
             </div>
 
-            {/* Delegados */}
-            <div className="mt-16">
-              <h2 className="font-display text-2xl font-bold text-foreground">Delegados Representantes</h2>
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="mt-12">
+              <h2 className="font-display text-xl font-bold text-foreground">Delegados Representantes</h2>
+              <div className="mt-4 flex flex-col gap-3">
                 {delegados.map((member, i) => (
                   <MemberCard key={i} name={member.name} role={member.role} index={i} />
                 ))}
               </div>
             </div>
 
-            <div className="mt-12 text-center">
+            <div className="mt-10 text-center">
               <Button variant="secondary" asChild>
                 <Link to="/quem-somos">
                   <ArrowLeft className="mr-2 h-4 w-4" />
