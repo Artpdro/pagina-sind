@@ -18,17 +18,17 @@ const AssessoriaJuridica = () => {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <section className="bg-primary py-16 md:py-24">
+        <section className="bg-primary py-14 md:py-20">
           <div className="container">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-4">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-foreground/10">
-                <Scale className="h-8 w-8 text-primary-foreground" />
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center bg-primary-foreground/10">
+                <Scale className="h-5 w-5 text-primary-foreground" />
               </div>
               <div>
                 <h1 className="font-display text-3xl font-extrabold text-primary-foreground md:text-4xl">
                   Assessoria Jurídica
                 </h1>
-                <p className="mt-2 text-lg text-primary-foreground/80">
+                <p className="mt-1 text-base text-primary-foreground/80">
                   Consultoria jurídica de qualidade para associados
                 </p>
               </div>
@@ -36,21 +36,21 @@ const AssessoriaJuridica = () => {
           </div>
         </section>
 
-        <section className="bg-background py-16 md:py-24">
+        <section className="bg-background py-10 md:py-14">
           <div className="container max-w-4xl">
-            <div className="grid gap-12 md:grid-cols-2">
+            <div className="grid gap-8 md:grid-cols-2">
               <div>
-                <h2 className="font-display text-2xl font-bold text-foreground">Consultoria Jurídica</h2>
-                <p className="mt-4 leading-relaxed text-muted-foreground">
+                <h2 className="font-display text-xl font-bold text-foreground">Consultoria Jurídica</h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   O SINDNORTE oferece consultoria jurídica de qualidade a todos os seus associados, contando com uma ampla variedade de serviços para atender de forma rápida, eficiente e segura.
                 </p>
-                <p className="mt-4 leading-relaxed text-muted-foreground">
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   Se você já é associado e precisa de uma consultoria, faça o agendamento para ser atendido.
                 </p>
-                <ul className="mt-6 space-y-3">
+                <ul className="mt-4 space-y-2">
                   {services.map((s) => (
                     <li key={s} className="flex items-center gap-2 text-sm text-card-foreground">
-                      <CheckCircle className="h-4 w-4 shrink-0 text-primary" />
+                      <CheckCircle className="h-3.5 w-3.5 shrink-0 text-primary" />
                       {s}
                     </li>
                   ))}
@@ -61,11 +61,11 @@ const AssessoriaJuridica = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="rounded-xl border border-border bg-card p-8 shadow-card"
+                className="border border-border bg-card p-6 shadow-card"
               >
-                <h3 className="font-display text-xl font-bold text-card-foreground">Entre em Contato</h3>
-                <p className="mt-2 text-sm text-muted-foreground">Agende sua consultoria jurídica:</p>
-                <div className="mt-6 space-y-4">
+                <h3 className="font-display text-base font-bold text-card-foreground">Entre em Contato</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Agende sua consultoria jurídica:</p>
+                <div className="mt-4 space-y-2">
                   <Button className="w-full" asChild>
                     <a href="mailto:juridico@sindnorte.com.br">
                       <Mail className="mr-2 h-4 w-4" />

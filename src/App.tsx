@@ -16,6 +16,7 @@ import MediacaoDigital from "./pages/MediacaoDigital.tsx";
 import Repis from "./pages/Repis.tsx";
 import ConvencaoColetiva from "./pages/ConvencaoColetiva.tsx";
 import AberturaFeriados from "./pages/AberturaFeriados.tsx";
+import Feriados from "./pages/Feriados.tsx";
 import Diretoria from "./pages/Diretoria.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/repis" element={<Repis />} />
           <Route path="/convencao-coletiva" element={<ConvencaoColetiva />} />
           <Route path="/abertura-feriados" element={<AberturaFeriados />} />
+          <Route path="/feriados" element={<Feriados />} />
           <Route path="/diretoria" element={<Diretoria />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

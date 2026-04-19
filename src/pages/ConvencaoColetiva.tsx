@@ -1,8 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { FileText, ExternalLink, Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { FileText, Download } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 type DocLink = { label: string; url: string };
@@ -54,21 +53,33 @@ const supermercadoDocs: DocLink[] = [
   { label: "CCT Supermercado 2017/2018", url: "https://www.sindnorte.com.br/_files/ugd/00b6aa_eb85580eeae64f48ba91dbe856c15066.pdf" },
 ];
 
+const isCCTHighlight = (label: string) =>
+  /^CCT (Comércio|Supermercado)/i.test(label);
+
 const DocList = ({ docs }: { docs: DocLink[] }) => (
   <div className="space-y-2">
-    {docs.map((doc) => (
-      <a
-        key={doc.url + doc.label}
-        href={doc.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-3 rounded-lg border border-border bg-card p-4 transition-colors hover:bg-secondary"
-      >
-        <FileText className="h-5 w-5 shrink-0 text-primary" />
-        <span className="flex-1 text-sm font-medium text-card-foreground">{doc.label}</span>
-        <Download className="h-4 w-4 shrink-0 text-muted-foreground" />
-      </a>
-    ))}
+    {docs.map((doc) => {
+      const highlight = isCCTHighlight(doc.label);
+      return (
+        <a
+          key={doc.url + doc.label}
+          href={doc.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`flex items-center gap-3 border transition-colors ${
+            highlight
+              ? "border-primary/40 bg-primary/5 hover:bg-primary/10 p-4 shadow-sm"
+              : "border-border bg-card hover:bg-secondary p-3"
+          }`}
+        >
+          <FileText className={`shrink-0 ${highlight ? "h-5 w-5 text-primary" : "h-4 w-4 text-muted-foreground"}`} />
+          <span className={`flex-1 ${highlight ? "text-sm font-bold text-primary" : "text-sm font-medium text-card-foreground"}`}>
+            {doc.label}
+          </span>
+          <Download className={`shrink-0 ${highlight ? "h-4 w-4 text-primary" : "h-3.5 w-3.5 text-muted-foreground"}`} />
+        </a>
+      );
+    })}
   </div>
 );
 
@@ -77,17 +88,17 @@ const ConvencaoColetiva = () => {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <section className="bg-primary py-16 md:py-24">
+        <section className="bg-primary py-14 md:py-20">
           <div className="container">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-4">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-foreground/10">
-                <FileText className="h-8 w-8 text-primary-foreground" />
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center bg-primary-foreground/10">
+                <FileText className="h-5 w-5 text-primary-foreground" />
               </div>
               <div>
                 <h1 className="font-display text-3xl font-extrabold text-primary-foreground md:text-4xl">
                   Convenção Coletiva de Trabalho
                 </h1>
-                <p className="mt-2 text-lg text-primary-foreground/80">
+                <p className="mt-1 text-base text-primary-foreground/80">
                   Acesse todas as CCTs e termos aditivos
                 </p>
               </div>
@@ -95,29 +106,29 @@ const ConvencaoColetiva = () => {
           </div>
         </section>
 
-        <section className="bg-background py-16 md:py-24">
+        <section className="bg-background py-10 md:py-14">
           <div className="container max-w-4xl">
-            <div className="rounded-xl border border-border bg-card p-6 shadow-card md:p-8">
-              <h2 className="font-display text-xl font-bold text-card-foreground">O que é uma Convenção Coletiva?</h2>
-              <p className="mt-3 leading-relaxed text-muted-foreground">
+            <div className="border border-border bg-card p-4 shadow-card md:p-5">
+              <h2 className="font-display text-lg font-bold text-card-foreground">O que é uma Convenção Coletiva?</h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 A convenção coletiva de trabalho (CCT) é uma importante ferramenta de gestão que garante que os sindicatos e os trabalhadores tenham voz para exigirem seus direitos trabalhistas. É um acordo feito entre os colaboradores e as contratantes da classe sindicalizada, onde são definidas condições como: ajustes e piso salarial, benefícios, normas e jornada de trabalho, regras para cada função e os deveres e direitos de cada um.
               </p>
             </div>
 
-            <div className="mt-10">
+            <div className="mt-8">
               <Tabs defaultValue="olinda">
                 <TabsList className="w-full flex-wrap">
                   <TabsTrigger value="olinda" className="flex-1">Olinda</TabsTrigger>
-                  <TabsTrigger value="paulista" className="flex-1">Paulista à Itamaracá</TabsTrigger>
-                  <TabsTrigger value="supermercado" className="flex-1">Supermercado</TabsTrigger>
+                  <TabsTrigger value="paulista" className="flex-1">Paulista à Ilha de Itamaracá</TabsTrigger>
+                  <TabsTrigger value="supermercado" className="flex-1">Supermercados</TabsTrigger>
                 </TabsList>
-                <TabsContent value="olinda" className="mt-6">
+                <TabsContent value="olinda" className="mt-4">
                   <DocList docs={olindaDocs} />
                 </TabsContent>
-                <TabsContent value="paulista" className="mt-6">
+                <TabsContent value="paulista" className="mt-4">
                   <DocList docs={paulistaDocs} />
                 </TabsContent>
-                <TabsContent value="supermercado" className="mt-6">
+                <TabsContent value="supermercado" className="mt-4">
                   <DocList docs={supermercadoDocs} />
                 </TabsContent>
               </Tabs>

@@ -49,12 +49,12 @@ const ServicesPreview = () => {
           <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">
             Nossos Serviços
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground md:text-base">
             Oferecemos uma ampla gama de serviços para apoiar o comércio e os serviços do Eixo Norte.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -65,12 +65,12 @@ const ServicesPreview = () => {
             >
               <Link
                 to={service.link}
-                className="group flex h-full flex-col rounded-xl border border-border bg-card p-6 shadow-card transition-all duration-200 hover:shadow-card-hover hover:-translate-y-0.5"
+                className="group flex h-full flex-col border border-border bg-card p-6 shadow-card transition-all duration-200 hover:shadow-card-hover hover:border-primary/30"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <service.icon className="h-6 w-6" />
+                <div className="mb-4 flex h-11 w-11 items-center justify-center bg-primary/10 text-primary">
+                  <service.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display text-lg font-semibold text-card-foreground">
+                <h3 className="font-display text-base font-semibold text-card-foreground">
                   {service.title}
                 </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">

@@ -13,7 +13,7 @@ const Footer = () => {
               Sindicato Empresarial do Comércio
             </p>
             <p className="mt-4 text-sm leading-relaxed opacity-80">
-              Sindicato das Empresas no Comércio e Serviços do Eixo Norte – PE. Fundado em 1999, representando o comércio nos municípios de Olinda, Paulista, Abreu e Lima, Igarassu, Itapissuma e Itamaracá.
+              O SINDNORTE – Sindicato das Empresas do Comércio e Serviços do Eixo Norte, fundado em 1999, é presidido por Milton Tavares de Melo Junior. Com sede em Paulista e unidades em Olinda e Igarassu, a entidade atua na representação do setor nos municípios de Olinda, Paulista, Abreu e Lima, Igarassu, Itapissuma e Ilha de Itamaracá.
             </p>
           </div>
 

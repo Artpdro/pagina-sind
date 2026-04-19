@@ -7,8 +7,9 @@ const navLinks = [
   { label: "Início", path: "/" },
   { label: "Quem Somos", path: "/quem-somos" },
   { label: "Serviços", path: "/servicos" },
+  { label: "Feriados", path: "/feriados" },
   { label: "Convênios", path: "/convenios" },
-  { label: "Notícias", path: "/noticias" },
+  { label: "Notícias", path: "https://www.sindnorte.com.br/eventos", external: true },
   { label: "Contato", path: "/contato" },
 ];
 
@@ -29,19 +30,31 @@ const Header = () => {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-1 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`rounded-md px-3 py-2 font-body text-sm font-medium transition-colors hover:bg-secondary hover:text-secondary-foreground ${
-                location.pathname === link.path
-                  ? "bg-secondary text-secondary-foreground"
-                  : "text-muted-foreground"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.path}
+                href={link.path}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-md px-3 py-2 font-body text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`rounded-md px-3 py-2 font-body text-sm font-medium transition-colors hover:bg-secondary hover:text-secondary-foreground ${
+                  location.pathname === link.path
+                    ? "bg-secondary text-secondary-foreground"
+                    : "text-muted-foreground"
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -68,20 +81,33 @@ const Header = () => {
       {open && (
         <div className="border-t border-border bg-card px-4 pb-4 pt-2 lg:hidden">
           <nav className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setOpen(false)}
-                className={`rounded-md px-3 py-2.5 font-body text-sm font-medium transition-colors ${
-                  location.pathname === link.path
-                    ? "bg-secondary text-secondary-foreground"
-                    : "text-muted-foreground"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.external ? (
+                <a
+                  key={link.path}
+                  href={link.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="rounded-md px-3 py-2.5 font-body text-sm font-medium text-muted-foreground transition-colors"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setOpen(false)}
+                  className={`rounded-md px-3 py-2.5 font-body text-sm font-medium transition-colors ${
+                    location.pathname === link.path
+                      ? "bg-secondary text-secondary-foreground"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </nav>
           <Button asChild className="mt-3 w-full">
             <Link to="/contato" onClick={() => setOpen(false)}>Fale Conosco</Link>

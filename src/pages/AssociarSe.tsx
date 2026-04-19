@@ -77,7 +77,10 @@ const AssociarSe = () => {
           <div className="container max-w-3xl text-center">
             <h2 className="font-display text-2xl font-bold text-foreground">Como se Associar?</h2>
             <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-              Para associar-se e receber imediatamente todos os benefícios, basta a empresa estar sediada na base de abrangência: Olinda, Paulista, Abreu e Lima, Igarassu, Itapissuma e Itamaracá.
+              Associe-se ao SINDNORTE e fortaleça sua empresa com segurança, representatividade e benefícios exclusivos. Empresas do comércio e serviços sediadas em Olinda, Paulista, Abreu e Lima, Igarassu, Itapissuma e Ilha de Itamaracá contam com suporte especializado, orientação e vantagens que contribuem para o crescimento e a regularidade do negócio.
+            </p>
+            <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+              Baixe o formulário a seguir, e após preenchimento e assinatura, nos encaminhe através do endereço de e-mail contato@sindnorte.com.br para tornar-se um associado.
             </p>
             <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <a href="tel:8133718119" className="flex items-center gap-2 text-lg font-semibold text-foreground">
